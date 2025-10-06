@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chưa mở khóa 💞</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ffd6e0, #ffb6c1, #ffc2d1);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #b3005e;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  #countdown {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+  }
+
+  /* Trái tim bay nhẹ */
+  .heart {
+    position: absolute;
+    color: #ff3366;
+    font-size: 20px;
+    animation: fly 6s linear infinite;
+  }
+
+  @keyframes fly {
+    from {transform: translateY(100vh) scale(1);}
+    to {transform: translateY(-10vh) scale(0.8); opacity: 0;}
+  }
+</style>
+</head>
+<body>
+  <h1>💞 Nội dung chưa được mở khóa 💞<br>Chờ nha pé iuu 😚</h1>
+  <div id="countdown"></div>
+
+  <script>
+    // Countdown đến 1/11/2025
+    const targetDate = new Date("Nov 1, 2025 00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây 💗`;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "🎉 Đã mở khóa rồi nhaaaa! 💖";
+      }
+    }, 1000);
+
+    // Tạo hiệu ứng tim bay ngẫu nhiên
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+      heart.innerHTML = "💗";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+  </script>
+</body>
+</html>

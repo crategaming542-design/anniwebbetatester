@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Anniversary 4th</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #7b0022, #b30047);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      animation: floatText 3s ease-in-out infinite alternate;
+    }
+
+    .heart {
+      font-size: 1.8rem;
+      margin-top: 15px;
+      animation: pulse 1.2s infinite;
+    }
+
+    .start-btn {
+      margin-top: 50px;
+      background-color: #ff4f87;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 50px;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .start-btn:hover {
+      background-color: #ff79a9;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Hiệu ứng */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.98); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatText {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Anniversary 4th 💖</h1>
+  <div class="heart">💗</div>
+  <button class="start-btn" onclick="fadeAndNext('page2.html')">Start</button>
+  <footer>Made with love</footer>
+
+  <script>
+    function fadeAndNext(url) {
+      document.body.style.animation = "fadeOut 0.8s forwards";
+      setTimeout(() => { window.location.href = url; }, 800);
+    }
+  </script>
+</body>
+</html>
